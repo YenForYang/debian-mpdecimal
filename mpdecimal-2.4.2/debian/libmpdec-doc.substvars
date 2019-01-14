@@ -1,0 +1,4 @@
+sphinxdoc:Depends=libjs-sphinxdoc (>= 1.0)
+sphinxdoc:Built-Using=sphinx (= 1.7.9-1)
+misc:Depends=
+misc:Pre-Depends=

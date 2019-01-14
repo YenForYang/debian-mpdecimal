@@ -1,0 +1,23 @@
+dh_update_autotools_config
+override_dh_auto_configure dh_auto_configure
+dh_auto_configure
+dh_auto_build
+dh_prep
+override_dh_auto_install dh_auto_install
+dh_auto_install
+dh_install
+dh_installdocs
+override_dh_sphinxdoc dh_sphinxdoc
+dh_sphinxdoc
+dh_installchangelogs
+dh_installinit
+dh_perl
+dh_link
+dh_strip_nondeterminism
+dh_compress
+dh_fixperms
+dh_missing
+dh_installdeb
+dh_gencontrol
+dh_md5sums
+dh_builddeb

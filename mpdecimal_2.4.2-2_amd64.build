@@ -1,0 +1,361 @@
+ dpkg-buildpackage -D -us -uc -ui -b -J5 -Pnobiarch,nocheck,nodoc -Zxz -z1
+dpkg-buildpackage: info: source package mpdecimal
+dpkg-buildpackage: info: source version 2.4.2-2
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Matthias Klose <doko@debian.org>
+ dpkg-source -Zxz -z1 --before-build .
+dpkg-buildpackage: info: host architecture amd64
+ fakeroot debian/rules clean
+dh clean --buildsystem=autoconf
+   dh_auto_clean -O--buildsystem=autoconf
+	make -j1 distclean
+make[1]: Entering directory '/dev/shm/mpdecimal/mpdecimal-2.4.2'
+cd libmpdec && if [ -f Makefile ]; then make distclean; else exit 0; fi
+make[2]: Entering directory '/dev/shm/mpdecimal/mpdecimal-2.4.2/libmpdec'
+rm -f *.o *.so *.gch *.gcda *.gcno *.gcov *.dyn *.dpi *.lock
+rm -f bench bench_shared libmpdec.a libmpdec.so.2.4.2 libmpdec.so.2 libmpdec.so
+cd .objs && rm -f *.o *.so *.gch *.gcda *.gcno *.gcov *.dyn *.dpi *.lock
+rm -f config.h config.log config.status Makefile mpdecimal.h
+make[2]: Leaving directory '/dev/shm/mpdecimal/mpdecimal-2.4.2/libmpdec'
+cd tests && if [ -f Makefile ]; then make distclean; else exit 0; fi
+make[2]: Entering directory '/dev/shm/mpdecimal/mpdecimal-2.4.2/tests'
+make clean
+make[3]: Entering directory '/dev/shm/mpdecimal/mpdecimal-2.4.2/tests'
+rm -f *.o *.gch *.gcda *.gcno *.gcov *.dyn *.dpi *.lock
+rm -f runtest runtest_shared runtest_alloc runtest_alloc_shared
+make[3]: Leaving directory '/dev/shm/mpdecimal/mpdecimal-2.4.2/tests'
+rm -rf Makefile dectest.zip testdata
+make[2]: Leaving directory '/dev/shm/mpdecimal/mpdecimal-2.4.2/tests'
+rm -f config.h config.log config.status Makefile
+make[1]: Leaving directory '/dev/shm/mpdecimal/mpdecimal-2.4.2'
+   dh_clean -O--buildsystem=autoconf
+	rm -f debian/debhelper-build-stamp
+	cp -an --reflink=auto debian/.debhelper/bucket/files/9be3de218833c076786b919dc34aab691611f4cd73316e7705f2673e2c41921b debian/.debhelper/bucket/files/9be3de218833c076786b919dc34aab691611f4cd73316e7705f2673e2c41921b.tmp
+	mv debian/.debhelper/bucket/files/9be3de218833c076786b919dc34aab691611f4cd73316e7705f2673e2c41921b.tmp config.guess
+	cp -an --reflink=auto debian/.debhelper/bucket/files/3cd488ca40af79af9b139188c440d64d3cf52eee56f4908907b61e12850646cf debian/.debhelper/bucket/files/3cd488ca40af79af9b139188c440d64d3cf52eee56f4908907b61e12850646cf.tmp
+	mv debian/.debhelper/bucket/files/3cd488ca40af79af9b139188c440d64d3cf52eee56f4908907b61e12850646cf.tmp config.sub
+	rm -rf debian/.debhelper/
+	rm -f debian/libmpdec-doc.debhelper.log
+	rm -f -- debian/libmpdec-dev.substvars debian/libmpdec2.substvars debian/libmpdec-doc.substvars debian/files
+	rm -fr -- debian/libmpdec-dev/ debian/tmp/ debian/libmpdec2/ debian/libmpdec-doc/
+	find .  \( \( \
+		\( -path .\*/.git -o -path .\*/.svn -o -path .\*/.bzr -o -path .\*/.hg -o -path .\*/CVS -o -path .\*/.pc -o -path .\*/_darcs \) -prune -o -type f -a \
+	        \( -name '#*#' -o -name '.*~' -o -name '*~' -o -name DEADJOE \
+		 -o -name '*.orig' -o -name '*.rej' -o -name '*.bak' \
+		 -o -name '.*.orig' -o -name .*.rej -o -name '.SUMS' \
+		 -o -name TAGS -o \( -path '*/.deps/*' -a -name '*.P' \) \
+		\) -exec rm -f {} + \) -o \
+		\( -type d -a -name autom4te.cache -prune -exec rm -rf {} + \) \)
+FAKEROOTKEY=407779035 LD_LIBRARY_PATH= LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so debian/rules clean
+ debian/rules build
+dh build --buildsystem=autoconf --with sphinxdoc
+   debian/rules build-indep
+make[1]: Entering directory '/dev/shm/mpdecimal/mpdecimal-2.4.2'
+dh build-indep --buildsystem=autoconf --with sphinxdoc
+   dh_update_autotools_config -i -O--buildsystem=autoconf
+	install -d debian/.debhelper/bucket/files
+	cp -an --reflink=auto config.guess debian/.debhelper/bucket/files/9be3de218833c076786b919dc34aab691611f4cd73316e7705f2673e2c41921b.tmp
+	mv debian/.debhelper/bucket/files/9be3de218833c076786b919dc34aab691611f4cd73316e7705f2673e2c41921b.tmp debian/.debhelper/bucket/files/9be3de218833c076786b919dc34aab691611f4cd73316e7705f2673e2c41921b
+	cp -f /usr/share/misc/config.guess ./config.guess
+	cp -an --reflink=auto config.sub debian/.debhelper/bucket/files/3cd488ca40af79af9b139188c440d64d3cf52eee56f4908907b61e12850646cf.tmp
+	mv debian/.debhelper/bucket/files/3cd488ca40af79af9b139188c440d64d3cf52eee56f4908907b61e12850646cf.tmp debian/.debhelper/bucket/files/3cd488ca40af79af9b139188c440d64d3cf52eee56f4908907b61e12850646cf
+	cp -f /usr/share/misc/config.sub ./config.sub
+   debian/rules override_dh_auto_configure
+make[2]: Entering directory '/dev/shm/mpdecimal/mpdecimal-2.4.2'
+env | grep CFLAGS
+OBJCFLAGS=-g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -fstack-protector-strong -Wformat -Werror=format-security
+CFLAGS=-g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security
+FCFLAGS=-g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -fstack-protector-strong -march=native -pipe -fstack-security-check
+dh_auto_configure -- \
+	--includedir=\${prefix}/include/x86_64-linux-gnu \
+	--libdir=\${prefix}/lib/x86_64-linux-gnu \
+	CFLAGS="-g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security" \
+	LDFLAGS="" \
+	
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/x86_64-linux-gnu --libexecdir=\${prefix}/lib/x86_64-linux-gnu --disable-maintainer-mode --disable-dependency-tracking --includedir=\${prefix}/include/x86_64-linux-gnu --libdir=\${prefix}/lib/x86_64-linux-gnu "CFLAGS=-g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security" LDFLAGS=
+configure: WARNING: unrecognized options: --disable-silent-rules, --disable-maintainer-mode, --disable-dependency-tracking
+configure: loading site script /usr/share/config.site
+checking build system type... (cached) x86_64-pc-linux-gnu
+checking host system type... (cached) x86_64-pc-linux-gnu
+checking for gcc... (cached) icc.pl
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... (cached) o
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether icc.pl accepts -g... yes
+checking for icc.pl option to accept ISO C89... (cached) -std=gnu89
+checking for ar... (cached) xiar.pl
+checking for ranlib... (cached) ranlib
+checking system as reported by uname -s... Linux
+checking how to run the C preprocessor... icc.pl -E
+checking for grep that handles long lines and -e... (cached) /bin/grep
+checking for egrep... (cached) /bin/grep -E
+checking for ANSI C header files... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for memory.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for size_t... yes
+checking for int32_t... yes
+checking for int64_t... yes
+checking for uint32_t... yes
+checking for uint64_t... yes
+checking for __uint128_t... yes
+checking size of size_t... 8
+checking size of __uint128_t... 16
+checking for x64 gcc inline assembler... yes
+checking for x87 gcc inline assembler... yes
+checking for -O2... yes
+checking for a BSD-compatible install... /usr/bin/install
+checking for glibc _FORTIFY_SOURCE/memmove bug... no
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating libmpdec/Makefile
+config.status: creating tests/Makefile
+config.status: creating libmpdec/mpdecimal.h
+config.status: creating config.h
+configure: WARNING: unrecognized options: --disable-silent-rules, --disable-maintainer-mode, --disable-dependency-tracking
+make[2]: Leaving directory '/dev/shm/mpdecimal/mpdecimal-2.4.2'
+   dh_auto_build -i -O--buildsystem=autoconf
+	make -j1
+make[2]: Entering directory '/dev/shm/mpdecimal/mpdecimal-2.4.2'
+cd libmpdec && make
+make[3]: Entering directory '/dev/shm/mpdecimal/mpdecimal-2.4.2/libmpdec'
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c basearith.c
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c context.c
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c constants.c
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c convolute.c
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c crt.c
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c mpdecimal.c
+remark #11074: Inlining inhibited by limit max-total-size 
+remark #11076: To get full report use -qopt-report=4 -qopt-report-phase ipo
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c mpsignal.c
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c difradix2.c
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c fnt.c
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c fourstep.c
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c io.c
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c memory.c
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c numbertheory.c
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c sixstep.c
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c transpose.c
+xiar rc libmpdec.a basearith.o context.o constants.o convolute.o crt.o mpdecimal.o mpsignal.o difradix2.o fnt.o fourstep.o io.o memory.o numbertheory.o sixstep.o transpose.o
+xiar: executing 'x86_64-linux-gnu-ar'
+x86_64-linux-gnu-ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+ranlib libmpdec.a
+ranlib: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c basearith.c -o .objs/basearith.o
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c context.c -o .objs/context.o
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c constants.c -o .objs/constants.o
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c convolute.c -o .objs/convolute.o
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c crt.c -o .objs/crt.o
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c mpdecimal.c -o .objs/mpdecimal.o
+remark #11074: Inlining inhibited by limit max-total-size 
+remark #11076: To get full report use -qopt-report=4 -qopt-report-phase ipo
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c mpsignal.c -o .objs/mpsignal.o
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c difradix2.c -o .objs/difradix2.o
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c fnt.c -o .objs/fnt.o
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c fourstep.c -o .objs/fourstep.o
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c io.c -o .objs/io.o
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c memory.c -o .objs/memory.o
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c numbertheory.c -o .objs/numbertheory.o
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c sixstep.c -o .objs/sixstep.o
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c transpose.c -o .objs/transpose.o
+icc.pl -std=gnu89  -shared -Wl,-soname,libmpdec.so.2 -o libmpdec.so.2.4.2 .objs/basearith.o .objs/context.o .objs/constants.o .objs/convolute.o .objs/crt.o .objs/mpdecimal.o .objs/mpsignal.o .objs/difradix2.o .objs/fnt.o .objs/fourstep.o .objs/io.o .objs/memory.o .objs/numbertheory.o .objs/sixstep.o .objs/transpose.o -lm
+ipo: remark #11000: performing multi-file optimizations
+ipo: remark #11006: generating object file /tmp/intel/ipo_icc7ULCbO.o
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+ln -sf libmpdec.so.2.4.2 libmpdec.so
+ln -sf libmpdec.so.2.4.2 libmpdec.so.2
+make[3]: Leaving directory '/dev/shm/mpdecimal/mpdecimal-2.4.2/libmpdec'
+make[2]: Leaving directory '/dev/shm/mpdecimal/mpdecimal-2.4.2'
+make[1]: Leaving directory '/dev/shm/mpdecimal/mpdecimal-2.4.2'
+   dh_update_autotools_config -O--buildsystem=autoconf -Nlibmpdec-doc
+	cp -f /usr/share/misc/config.guess ./config.guess
+	cp -f /usr/share/misc/config.sub ./config.sub
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/dev/shm/mpdecimal/mpdecimal-2.4.2'
+env | grep CFLAGS
+OBJCFLAGS=-g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -fstack-protector-strong -Wformat -Werror=format-security
+CFLAGS=-g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security
+FCFLAGS=-g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -fstack-protector-strong -march=native -pipe -fstack-security-check
+dh_auto_configure -- \
+	--includedir=\${prefix}/include/x86_64-linux-gnu \
+	--libdir=\${prefix}/lib/x86_64-linux-gnu \
+	CFLAGS="-g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security" \
+	LDFLAGS="" \
+	
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/x86_64-linux-gnu --libexecdir=\${prefix}/lib/x86_64-linux-gnu --disable-maintainer-mode --disable-dependency-tracking --includedir=\${prefix}/include/x86_64-linux-gnu --libdir=\${prefix}/lib/x86_64-linux-gnu "CFLAGS=-g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security" LDFLAGS=
+configure: WARNING: unrecognized options: --disable-silent-rules, --disable-maintainer-mode, --disable-dependency-tracking
+configure: loading site script /usr/share/config.site
+checking build system type... (cached) x86_64-pc-linux-gnu
+checking host system type... (cached) x86_64-pc-linux-gnu
+checking for gcc... (cached) icc.pl
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... (cached) o
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether icc.pl accepts -g... yes
+checking for icc.pl option to accept ISO C89... (cached) -std=gnu89
+checking for ar... (cached) xiar.pl
+checking for ranlib... (cached) ranlib
+checking system as reported by uname -s... Linux
+checking how to run the C preprocessor... icc.pl -E
+checking for grep that handles long lines and -e... (cached) /bin/grep
+checking for egrep... (cached) /bin/grep -E
+checking for ANSI C header files... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for memory.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for size_t... yes
+checking for int32_t... yes
+checking for int64_t... yes
+checking for uint32_t... yes
+checking for uint64_t... yes
+checking for __uint128_t... yes
+checking size of size_t... 8
+checking size of __uint128_t... 16
+checking for x64 gcc inline assembler... yes
+checking for x87 gcc inline assembler... yes
+checking for -O2... yes
+checking for a BSD-compatible install... /usr/bin/install
+checking for glibc _FORTIFY_SOURCE/memmove bug... no
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating libmpdec/Makefile
+config.status: creating tests/Makefile
+config.status: creating libmpdec/mpdecimal.h
+config.status: creating config.h
+config.status: config.h is unchanged
+configure: WARNING: unrecognized options: --disable-silent-rules, --disable-maintainer-mode, --disable-dependency-tracking
+make[1]: Leaving directory '/dev/shm/mpdecimal/mpdecimal-2.4.2'
+   dh_auto_build -O--buildsystem=autoconf -Nlibmpdec-doc
+	make -j1
+make[1]: Entering directory '/dev/shm/mpdecimal/mpdecimal-2.4.2'
+cd libmpdec && make
+make[2]: Entering directory '/dev/shm/mpdecimal/mpdecimal-2.4.2/libmpdec'
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c basearith.c
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c context.c
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c constants.c
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c convolute.c
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c crt.c
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c mpdecimal.c
+remark #11074: Inlining inhibited by limit max-total-size 
+remark #11076: To get full report use -qopt-report=4 -qopt-report-phase ipo
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c mpsignal.c
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c difradix2.c
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c fnt.c
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c fourstep.c
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c io.c
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c memory.c
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c numbertheory.c
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c sixstep.c
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -c transpose.c
+xiar rc libmpdec.a basearith.o context.o constants.o convolute.o crt.o mpdecimal.o mpsignal.o difradix2.o fnt.o fourstep.o io.o memory.o numbertheory.o sixstep.o transpose.o
+xiar: executing 'x86_64-linux-gnu-ar'
+x86_64-linux-gnu-ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+ranlib libmpdec.a
+ranlib: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c basearith.c -o .objs/basearith.o
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c context.c -o .objs/context.o
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c constants.c -o .objs/constants.o
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c convolute.c -o .objs/convolute.o
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c crt.c -o .objs/crt.o
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c mpdecimal.c -o .objs/mpdecimal.o
+remark #11074: Inlining inhibited by limit max-total-size 
+remark #11076: To get full report use -qopt-report=4 -qopt-report-phase ipo
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c mpsignal.c -o .objs/mpsignal.o
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c difradix2.c -o .objs/difradix2.o
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c fnt.c -o .objs/fnt.o
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c fourstep.c -o .objs/fourstep.o
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c io.c -o .objs/io.o
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c memory.c -o .objs/memory.o
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c numbertheory.c -o .objs/numbertheory.o
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c sixstep.c -o .objs/sixstep.o
+icc.pl -std=gnu89 -Wall -Wno-unknown-pragmas -DCONFIG_64 -DASM -O2 -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -g -O2 -fdebug-prefix-map=/dev/shm/mpdecimal/mpdecimal-2.4.2=. -Wformat -march=native -pipe -Wformat-security -fPIC -c transpose.c -o .objs/transpose.o
+icc.pl -std=gnu89  -shared -Wl,-soname,libmpdec.so.2 -o libmpdec.so.2.4.2 .objs/basearith.o .objs/context.o .objs/constants.o .objs/convolute.o .objs/crt.o .objs/mpdecimal.o .objs/mpsignal.o .objs/difradix2.o .objs/fnt.o .objs/fourstep.o .objs/io.o .objs/memory.o .objs/numbertheory.o .objs/sixstep.o .objs/transpose.o -lm
+ipo: remark #11000: performing multi-file optimizations
+ipo: remark #11006: generating object file /tmp/intel/ipo_iccnBEjyY.o
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+ln -sf libmpdec.so.2.4.2 libmpdec.so
+ln -sf libmpdec.so.2.4.2 libmpdec.so.2
+make[2]: Leaving directory '/dev/shm/mpdecimal/mpdecimal-2.4.2/libmpdec'
+make[1]: Leaving directory '/dev/shm/mpdecimal/mpdecimal-2.4.2'
+ fakeroot debian/rules binary
+dh binary --buildsystem=autoconf --with sphinxdoc
+   debian/rules build
+make[1]: Entering directory '/dev/shm/mpdecimal/mpdecimal-2.4.2'
+dh build --buildsystem=autoconf --with sphinxdoc
+   debian/rules build-indep
+make[2]: Entering directory '/dev/shm/mpdecimal/mpdecimal-2.4.2'
+dh build-indep --buildsystem=autoconf --with sphinxdoc
+make[2]: Leaving directory '/dev/shm/mpdecimal/mpdecimal-2.4.2'
+make[1]: Leaving directory '/dev/shm/mpdecimal/mpdecimal-2.4.2'
+   debian/rules binary-indep
+make[1]: Entering directory '/dev/shm/mpdecimal/mpdecimal-2.4.2'
+dh binary-indep --buildsystem=autoconf --with sphinxdoc
+   debian/rules build-indep
+make[2]: Entering directory '/dev/shm/mpdecimal/mpdecimal-2.4.2'
+dh build-indep --buildsystem=autoconf --with sphinxdoc
+make[2]: Leaving directory '/dev/shm/mpdecimal/mpdecimal-2.4.2'
+   dh_testroot -i -O--buildsystem=autoconf
+   dh_prep -i -O--buildsystem=autoconf
+	rm -f -- debian/libmpdec-doc.substvars
+	rm -fr -- debian/.debhelper/generated/libmpdec-doc/ debian/libmpdec-doc/ debian/tmp/
+   debian/rules override_dh_auto_install
+make[2]: Entering directory '/dev/shm/mpdecimal/mpdecimal-2.4.2'
+dh_auto_install
+	install -d debian/libmpdec-doc
+	make -j1 install DESTDIR=/dev/shm/mpdecimal/mpdecimal-2.4.2/debian/tmp AM_UPDATE_INFO_DIR=no
+make[3]: Entering directory '/dev/shm/mpdecimal/mpdecimal-2.4.2'
+/usr/bin/install -d -m 755 /dev/shm/mpdecimal/mpdecimal-2.4.2/debian/tmp/usr/include/x86_64-linux-gnu
+/usr/bin/install -m 644 libmpdec/mpdecimal.h /dev/shm/mpdecimal/mpdecimal-2.4.2/debian/tmp/usr/include/x86_64-linux-gnu
+/usr/bin/install -d -m 755 /dev/shm/mpdecimal/mpdecimal-2.4.2/debian/tmp/usr/lib/x86_64-linux-gnu
+/usr/bin/install -m 644 libmpdec/libmpdec.a /dev/shm/mpdecimal/mpdecimal-2.4.2/debian/tmp/usr/lib/x86_64-linux-gnu
+/usr/bin/install -m 755 libmpdec/libmpdec.so.2.4.2 /dev/shm/mpdecimal/mpdecimal-2.4.2/debian/tmp/usr/lib/x86_64-linux-gnu
+cd /dev/shm/mpdecimal/mpdecimal-2.4.2/debian/tmp/usr/lib/x86_64-linux-gnu && ln -sf libmpdec.so.2.4.2 libmpdec.so.2 && ln -sf libmpdec.so.2.4.2 libmpdec.so
+/usr/bin/install -d -m 755 /dev/shm/mpdecimal/mpdecimal-2.4.2/debian/tmp/usr/share/doc/
+cp -R doc/* /dev/shm/mpdecimal/mpdecimal-2.4.2/debian/tmp/usr/share/doc/
+make[3]: Leaving directory '/dev/shm/mpdecimal/mpdecimal-2.4.2'
+ln -sf libmpdec.so.2 debian/tmp/usr/lib/x86_64-linux-gnu/libmpdec.so
+make[2]: Leaving directory '/dev/shm/mpdecimal/mpdecimal-2.4.2'
+   dh_install -i -O--buildsystem=autoconf
+	install -d debian/.debhelper/generated/libmpdec-dev
+	install -d debian/.debhelper/generated/libmpdec2
+	install -d debian/.debhelper/generated/libmpdec-doc
+   dh_installdocs -i -O--buildsystem=autoconf
+	install -d debian/libmpdec-doc/usr/share/doc/libmpdec-doc
+	install -p -m0644 debian/copyright debian/libmpdec-doc/usr/share/doc/libmpdec-doc/copyright
+   debian/rules override_dh_sphinxdoc
+make[2]: Entering directory '/dev/shm/mpdecimal/mpdecimal-2.4.2'
+rm -f debian/libmpdec-doc/usr/share/doc/libmpdec-doc/_static/{doctools,jquery,searchtools,sidebar,underscore}.js
+cp -p /usr/share/javascript/sphinxdoc/1.0/{doctools,jquery,searchtools,sidebar,underscore}.js \
+	debian/tmp/usr/share/doc/mpdecimal/_static/.
+cp: target 'debian/tmp/usr/share/doc/mpdecimal/_static/.' is not a directory
+make[2]: *** [debian/rules:57: override_dh_sphinxdoc] Error 1
+make[2]: Leaving directory '/dev/shm/mpdecimal/mpdecimal-2.4.2'
+make[1]: *** [debian/rules:23: binary-indep] Error 2
+make[1]: Leaving directory '/dev/shm/mpdecimal/mpdecimal-2.4.2'
+make: *** [debian/rules:23: binary] Error 2
+FAKEROOTKEY=2131574758 LD_LIBRARY_PATH= LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so debian/rules binary
+ dpkg-genbuildinfo --build=binary
+dpkg-genbuildinfo: error: binary build with no binary artifacts found; .buildinfo is meaningless
+dpkg-buildpackage: error: dpkg-genbuildinfo --build=binary subprocess returned exit status 25

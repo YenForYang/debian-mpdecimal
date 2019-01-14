@@ -1,0 +1,13 @@
+Package: libmpdec2-dbgsym
+Source: mpdecimal
+Version: 2.4.2-2
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Matthias Klose <doko@debian.org>
+Installed-Size: 484
+Depends: libmpdec2 (= 2.4.2-2)
+Section: debug
+Priority: optional
+Multi-Arch: same
+Description: debug symbols for libmpdec2
+Build-Ids: 0850f42d9839144e02c7e22b10d1287c3b21d230
